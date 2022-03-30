@@ -11,4 +11,11 @@ public class main {
 
         return null;
     }
+
+    @GetMapping("/createUser")
+    public String createUser(){
+
+
+        return null;
+    }
 }
