@@ -178,3 +178,13 @@ span.psw {
 .input-field:focus {
     border: 2px solid dodgerblue;
 }
+.createUserBox{
+    background-color: #fefefe;
+   margin: auto;
+    width: 400px;
+    text-align: center;
+}
+legend{
+    background: white;
+    padding: 5px 10px;
+}

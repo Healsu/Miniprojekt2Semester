@@ -29,7 +29,6 @@ public class SQLfunction {
 
         return con;
     }
-
     public boolean addUserToDB(String brugerNavn, String brugerMail, String brugerKodeord) {
         String insertSQL = "INSERT INTO user " +
                 "(`user_name`,`user_mail`,`user_password`) " +
