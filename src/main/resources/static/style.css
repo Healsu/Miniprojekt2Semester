@@ -5,10 +5,16 @@ body{
 
 header{
     display: flex;
-    align-self: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+#logo_and_title{
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
-#logo{
-    width: 4%;
-    height: 4%;
+#logo {
+    height: 100%;
 }
