@@ -17,7 +17,7 @@ public class SQLfunction {
             String url = "jdbc:mysql://localhost:3306/gavelisten";
 
 
-            con = DriverManager.getConnection(url, "root", "Tim10ses");
+            con = DriverManager.getConnection(url, "root", "");
 
 
             System.out.println("URL: " + url);
