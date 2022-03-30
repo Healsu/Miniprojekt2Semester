@@ -7,23 +7,66 @@
     <link rel="stylesheet"  href="/style.css">
 </head>
 <body>
-
 <header>
     <div id="logo_and_title">
         <img id="logo" src="https://cdn-icons-png.flaticon.com/512/172/172155.png">
         <h1>Gavelisten</h1>
     </div>
-    <div class="profil">
-        <a href="#"><i class="fa-solid fa-user"></i></a>
+
+    <!--https://www.w3schools.com/howto/howto_css_login_form.asp-->
+    <i onclick="document.getElementById('id01').style.display='block'" class="fa-solid fa-circle-thin fa-user fa-2x"></i>
+
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+
+            <div class="container">
+                <h3>Login</h3>
+                <div class="input-container">
+                    <i class="fa-regular fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Username" name="uname" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa-solid fa-key icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div id="login_bottom">
+                    <a href="#">Er du ikke bruger?</a>
+                    <button class="input-button" type="submit">Login</button>
+                </div>
+            </div>
+        </form>
     </div>
+    <!--https://www.w3schools.com/howto/howto_css_login_form.asp-->
+
 </header>
 <main>
-    <section>
+    <section id="forside_info">
+        <h2>Velkommen til Gavelisten</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nibh mi, blandit a commodo vitae, auctor vitae nisi. Duis at fermentum leo. Vivamus pharetra massa eget velit placerat finibus. Integer sodales viverra odio eu tincidunt. Curabitur id ante porttitor, egestas erat semper, suscipit quam. Curabitur non metus non nibh hendrerit bibendum facilisis nec justo. Duis scelerisque mi blandit, congue mi in, porttitor lacus. Fusce id justo quis ante convallis faucibus. Vivamus finibus sem ex, in lacinia enim maximus quis. Integer congue ligula in sollicitudin viverra. Aliquam et nisi nulla. Ut id tempus lorem, sed sollicitudin urna. Maecenas cursus ligula mi, ut consectetur odio sagittis id. Morbi at dignissim quam.</p>
     </section>
 </main>
 <footer>
-
+    <p>Følg os på Facebook</p>
+    <p>Følg os på Twitter</p>
 </footer>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>
