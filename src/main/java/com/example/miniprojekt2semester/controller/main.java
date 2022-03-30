@@ -10,4 +10,11 @@ public class main {
     public String mainpage(){
         return "index";
     }
+
+    @GetMapping("/createUser")
+    public String createUser(){
+
+
+        return null;
+    }
 }
