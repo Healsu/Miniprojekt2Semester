@@ -2,6 +2,7 @@ package com.example.miniprojekt2semester.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class main {
@@ -15,6 +16,14 @@ public class main {
     public String createUser(){
 
 
-        return null;
+        return "userCreation";
+    }
+
+    @PostMapping("/Get-Info")
+    public String creatingUser(){
+
+
+
+        return "redirect:/index";
     }
 }
