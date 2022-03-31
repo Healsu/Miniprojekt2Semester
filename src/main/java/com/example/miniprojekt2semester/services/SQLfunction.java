@@ -17,9 +17,10 @@ public class SQLfunction {
         try {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
+            String user = "root";
+            String password = "";
 
-
-            con = DriverManager.getConnection(url, "root", "");
+            con = DriverManager.getConnection(url, user, password);
 
 
             System.out.println("URL: " + url);
@@ -31,10 +32,10 @@ public class SQLfunction {
 
         return con;
     }
-    public boolean addUserToDB(String brugerNavn, String brugerMail, String brugerKodeord) {
+    public boolean addUserToDB(String userName, String userMail, String userPassword) {
         String insertSQL = "INSERT INTO user " +
                 "(`user_name`,`user_mail`,`user_password`) " +
-                "VALUES('" + brugerNavn + "','" + brugerMail + "','" + brugerKodeord + "');";
+                "VALUES('" + userName + "','" + userMail + "','" + userPassword + "');";
 
         try {
             stmt = con.createStatement();
