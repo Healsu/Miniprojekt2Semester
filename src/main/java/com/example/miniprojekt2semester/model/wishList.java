@@ -1,4 +1,4 @@
-package models;
+package com.example.miniprojekt2semester.model;
 
 public class wishList {
     private int wishListID;
