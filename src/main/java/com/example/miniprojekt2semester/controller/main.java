@@ -21,7 +21,6 @@ public class main {
     @GetMapping("/createUser")
     public String createUser(){
 
-
         return "userCreation";
     }
 
