@@ -53,4 +53,24 @@ public class SQLfunction {
             System.out.println("ERROR - Connection might already be closed");
         }
     }
+
+    public boolean checkIfUserExists(String email, String password){
+        connectDB();
+        sqlString = "SELECT * FROM user WHERE user_mail = '" + email + "' && user_password = '" + password + "';";
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(sqlString);
+            if (rs.next()){
+                closeConnection();
+                return true;
+            } else {
+                closeConnection();
+                return false;
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        closeConnection();
+        return false;
+    }
 }
