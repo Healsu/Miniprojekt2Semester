@@ -17,7 +17,7 @@ public class SQLfunction {
             String url = "jdbc:mysql://localhost:3306/gavelisten";
 
 
-            con = DriverManager.getConnection(url, "root", "");
+            con = DriverManager.getConnection(url, "root", "Hfg93rdqhfg");
 
 
             System.out.println("URL: " + url);
@@ -56,8 +56,8 @@ public class SQLfunction {
 
     public boolean checkIfUserExists(String email, String password){
         connectDB();
-        sqlString = "SELECT * FROM user WHERE user_mail = '" + email + "' && user_password = '" + password + "';";
         try {
+            sqlString = "SELECT * FROM user WHERE user_mail = '" + email + "' AND user_password = '" + password + "';";
             stmt = con.createStatement();
             rs = stmt.executeQuery(sqlString);
             if (rs.next()){
