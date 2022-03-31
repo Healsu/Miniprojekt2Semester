@@ -1,23 +1,23 @@
 package com.example.miniprojekt2semester.model;
 
 public class user {
-    private String userID;
+    private int userID;
     private String userName;
     private String userMail;
     private String userPassword;
 
-    public user(String userID, String userName, String userMail, String userPassword) {
+    public user(int userID, String userName, String userMail, String userPassword) {
         this.userID = userID;
         this.userName = userName;
         this.userMail = userMail;
         this.userPassword = userPassword;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
