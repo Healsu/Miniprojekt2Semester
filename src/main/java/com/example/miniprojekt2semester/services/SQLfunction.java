@@ -1,6 +1,7 @@
 package com.example.miniprojekt2semester.services;
 
 import java.sql.*;
+import com.example.miniprojekt2semester.model.user;
 import java.util.ArrayList;
 
 public class SQLfunction {
@@ -8,6 +9,7 @@ public class SQLfunction {
     static Statement stmt;
     static String sqlString;
     static ResultSet rs;
+
 
 
     public Connection connectDB() {
@@ -72,5 +74,22 @@ public class SQLfunction {
         }
         closeConnection();
         return false;
+    }
+    public user userForSession(String email, String password){
+        connectDB();
+        try {
+            sqlString = "SELECT * FROM user WHERE user_mail = '" + email + "' AND user_password = '" + password + "';";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(sqlString);
+            rs.next();
+            int id = rs.getInt(1);
+            String username = rs.getString(2);
+            String userEmail = rs.getString(3);
+            String userPassword = rs.getString(4);
+            return new user(id,username, userEmail, userPassword);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

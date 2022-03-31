@@ -2,25 +2,45 @@ package com.example.miniprojekt2semester.controller;
 
 import com.example.miniprojekt2semester.services.SQLfunction;
 import com.example.miniprojekt2semester.services.ValidateMail;
+import com.example.miniprojekt2semester.model.user;
+import com.mysql.cj.Session;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.thymeleaf.model.IAttribute;
+
+
+import javax.servlet.http.HttpSession;
 
 
 @Controller
 public class main {
 
-
+    SQLfunction sqLfunction = new SQLfunction();
 
     @GetMapping("/index")
     public String mainpage(){
         return "index";
     }
 
+    @PostMapping("login")
+    public String login(WebRequest dataFromForm, HttpSession session){
+        String email = dataFromForm.getParameter("email");
+        String password = dataFromForm.getParameter("password");
+        if (sqLfunction.checkIfUserExists(email, password)){
+            session.setAttribute("user",sqLfunction.userForSession(email,password));
+            return "redirect:/";
+        } else {
+            return "redirct:/";
+        }
+    }
+
+
     @GetMapping("/createUser")
     public String createUser(){
-
         return "userCreation";
     }
 
