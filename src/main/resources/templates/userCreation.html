@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet"  href="/style.css">
+    <script src="https://kit.fontawesome.com/4ef292df47.js" crossorigin="anonymous"></script>
 </head>
 <header>
     <div id="logo_and_title">
@@ -15,10 +16,19 @@
 <fieldset div class="createUserBox">
     <h2 style="padding-bottom: 30px">Create new user</h2>
     <form action="/Get-Info" method="POST">
-        <label for="userName">Name </label> <input type="text" name="userName" id="userName" placeholder="Click Here" required> <br>
-        <label for="mail">Mail </label> <input type="text" name="mail" id="mail" placeholder="Click Here" required> <br>
-        <label for="password">Password </label> <input type="password" name="password" id="password"  placeholder="Click Here" required> <br>
-        <input type="submit" value="Create User">
+        <div class="input-container">
+            <i class="fa-solid fa-user icon"></i>
+            <input class="input-field"  type="text" name="userName" id="userName" placeholder="Enter username" required>
+        </div>
+        <div class="input-container">
+            <i class="fa-solid fa-envelope icon"></i>
+            <input class="input-field"  type="text" name="mail" id="mail" placeholder="Enter mail" required>
+        </div>
+        <div class="input-container">
+            <i class="fa-solid fa-key icon"></i>
+            <input class="input-field" type="password" name="password" id="password"  placeholder="Enter password" required>
+        </div>
+        <input class="input-button" type="submit" value="Create User">
     </form>
 
 </fieldset>

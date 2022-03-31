@@ -26,7 +26,7 @@ header{
     height: 100%;
 }
 
-.fa-user{
+.profil{
     color: black;
     display: inline-block;
     border-radius: 40px;
@@ -34,7 +34,7 @@ header{
     padding: 0.3em 0.4em;
 }
 
-.fa-user:hover{
+.profil:hover{
     color: #ff0f27;
     box-shadow: 0px 0px 2px #ff0f27;
 }
@@ -163,7 +163,7 @@ span.psw {
 }
 
 .icon {
-    padding: 10px;
+    padding: 10px 15px;
     background: dodgerblue;
     color: white;
     min-width: 50px;
@@ -180,7 +180,7 @@ span.psw {
 }
 .createUserBox{
     background-color: #fefefe;
-   margin: auto;
+    margin: auto;
     width: 400px;
     text-align: center;
 }
