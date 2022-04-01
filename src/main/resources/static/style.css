@@ -20,7 +20,10 @@ header{
     display: flex;
     align-items: center;
     height: 100%;
+    color: #000000;
+    text-decoration: none;
 }
+
 
 #logo {
     height: 100%;

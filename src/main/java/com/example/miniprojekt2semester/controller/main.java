@@ -39,7 +39,7 @@ public class main {
     }
 
 
-    @GetMapping("/createUser")
+    @GetMapping("/userCreation")
     public String createUser(){
         return "userCreation";
     }
