@@ -38,6 +38,10 @@ public class main {
         }
     }
 
+    @GetMapping("/createWishList")
+    public String createWishList(){
+        return "createWishList";
+    }
 
     @GetMapping("/userCreation")
     public String createUser(){
