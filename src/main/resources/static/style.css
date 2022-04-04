@@ -16,6 +16,23 @@ header{
     height: 50px;
 }
 
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #38c6d9;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#forside_info{
+    width: 60%;
+}
+
 #logo_and_title{
     display: flex;
     align-items: center;
