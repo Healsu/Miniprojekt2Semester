@@ -41,7 +41,6 @@ footer{
     text-decoration: none;
 }
 
-
 #logo {
     height: 100%;
 }
@@ -69,6 +68,26 @@ footer{
 
 #forside_info,h2{
     align-self: center;
+}
+
+#createWishContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#addWishBox{
+    width: 30%;
+    border: 1px solid black;
+}
+
+#wishList{
+    width: 40%;
+    border: 1px solid black;
+}
+
+#wishArray{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .input-button{

@@ -14,19 +14,44 @@
         </a>
     </header>
     <main>
-        <section>
-            <form method="post">
+        <div id="createWishContainer">
+            <section id="addWishBox">
+                <form method="post">
+                    <div class="container">
+                        <label>Produkt navn</label>
+                        <input class="input-field" placeholder="Indtast produkt navn" type="text">
+                        <label>Pris</label>
+                        <input class="input-field" placeholder="Indtast pris" type="text">
+                        <label>Link</label>
+                        <input class="input-field" placeholder="Indtast link" type="text">
+                        <button class="input-button" name="add" type="button">Tilføj</button>
+                    </div>
+                </form>
+            </section>
+            <section id="wishList">
                 <div class="container">
-                    <label>Produkt navn</label>
-                    <input class="input-field" placeholder="Indtast navn" type="text">
-                    <label>Pris</label>
-                    <input class="input-field" placeholder="Indtast pris" type="text">
-                    <label>Link</label>
-                    <input class="input-field" placeholder="Indtast link" type="text">
-                    <button name="tilføj" type="button">Tilføj</button>
+                    <form method="post">
+                        <input placeholder="Wishlist name" type="text">
+                        <div id="wishArray">
+                            <div>
+                                <p>Produckt navn:</p>
+                                <p>Scam box</p>
+                            </div>
+                            <div>
+                                <p>Pris:</p>
+                                <p>1.000.000 kr</p>
+                            </div>
+                            <div>
+                                <p>Link:</p>
+                                <p>https://scam.com</p>
+                            </div>
+                        </div>
+                        <button class="input-button" name="done">Færdiggør</button>
+                        <button class="input-button" name="clear">Ryd</button>
+                    </form>
                 </div>
-            </form>
-        </section>
+            </section>
+        </div>
     </main>
     <footer>
         <p>Gavelisen</p>
