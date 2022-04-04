@@ -18,7 +18,7 @@ public class SQLfunction {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
             String user = "root";
-            String password = "";
+            String password = "Tim10ses";
 
             con = DriverManager.getConnection(url, user, password);
 

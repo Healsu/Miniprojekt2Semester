@@ -32,9 +32,9 @@ public class main {
         String password = dataFromForm.getParameter("password");
         if (sqLfunction.checkIfUserExists(email, password)){
             session.setAttribute("user",sqLfunction.userForSession(email,password));
-            return "redirect:/";
+            return "userWebsite";
         } else {
-            return "redirct:/";
+            return "redirect:/";
         }
     }
 
