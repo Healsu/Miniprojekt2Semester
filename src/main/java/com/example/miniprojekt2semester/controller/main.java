@@ -43,6 +43,12 @@ public class main {
         return "createWishList";
     }
 
+    @GetMapping("/invalidate-session")
+    public String invalidate(HttpSession session){
+        session.invalidate();
+        return "redirect:index";
+    }
+
     @GetMapping("/userCreation")
     public String createUser(){
         return "userCreation";

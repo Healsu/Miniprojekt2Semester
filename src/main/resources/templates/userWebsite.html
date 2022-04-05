@@ -35,8 +35,8 @@
                 </div>
 
                 <div class="input-container2">
-                    <form action="index">
-                        <input type="submit" value="Log ud" />
+                    <form action="invalidate-session">
+                        <a href="invalidate-session"><input type="submit" value="Log ud" /></a>
                     </form>
                 </div>
 
@@ -63,6 +63,7 @@
 <span class="menu" onclick="openNav()">Menu</span>
 
 <div id="main">
+    <h3 th:text="${session.user.getUserName()}"> </h3>
 </div>
 
 <div class="optionBoxes">
