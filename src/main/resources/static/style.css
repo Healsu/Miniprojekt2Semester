@@ -283,6 +283,7 @@ legend{
 
 }
 .UpperBox{
+
     text-align: center;
     background-color: #38c6d9;
     height: 10%;
@@ -299,4 +300,7 @@ legend{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+}
+.menu{
+
 }
