@@ -18,7 +18,7 @@ public class SQLfunction {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
             String user = "root";
-            String password = "Tim10ses";
+            String password = "";
 
             con = DriverManager.getConnection(url, user, password);
 
@@ -86,16 +86,23 @@ public class SQLfunction {
             int id = rs.getInt(1);
             String username = rs.getString(2);
             String userEmail = rs.getString(3);
-            String userPassword = rs.getString(4);
-            return new user(id,username, userEmail, userPassword);
+            return new user(id,username, userEmail);
         } catch (SQLException e){
             e.printStackTrace();
         }
         return null;
     }
-    public String createWishList( ){
-
-        return null;
+    public void createWishList(int id, String wishlistName ){
+        connectDB();
+        sqlString = "INSERT INTO wishlist (`user_id`, `name`) VALUES ('" + id + "', '" + wishlistName + "');";
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(sqlString);
+            closeConnection();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        closeConnection();
     }
     public String addWishToList(String productName, String priceName, String link){
         String insertSQL = "INSERT INTO wish " +

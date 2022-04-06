@@ -1,5 +1,6 @@
 package com.example.miniprojekt2semester.controller;
 
+import com.example.miniprojekt2semester.model.user;
 import com.example.miniprojekt2semester.services.SQLfunction;
 import com.example.miniprojekt2semester.services.ValidateMail;
 import org.springframework.stereotype.Controller;
@@ -24,12 +25,15 @@ public class main {
     public String login(WebRequest dataFromForm, HttpSession session){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
-        if (sqLfunction.checkIfUserExists(email, password)){
-            session.setAttribute("user",sqLfunction.userForSession(email,password));
-            return "userWebsite";
-        } else {
-            return "redirect:/";
+        if(session.getAttribute("user") == null) {
+            if (sqLfunction.checkIfUserExists(email, password)) {
+                session.setAttribute("user", sqLfunction.userForSession(email, password));
+                return "userWebsite";
+            } else {
+                return "redirect:/";
+            }
         }
+        return "redirect:/";
     }
 
     @GetMapping("/createWishList")
@@ -50,22 +54,31 @@ public class main {
 
     @PostMapping("/Get-Info")
     public String creatingUser(WebRequest dataFromForm){
-        SQLfunction sqlFunction = new SQLfunction();
         ValidateMail mailValidate = new ValidateMail();
-
-        sqlFunction.connectDB();
 
         String userName = (dataFromForm.getParameter("userName"));
         String userMail = (dataFromForm.getParameter("mail"));
         String userPassword = (dataFromForm.getParameter("password"));
 
-        if (mailValidate.isEmailValid(userMail) && sqlFunction.addUserToDB(userName,userMail,userPassword)) {
+        if (mailValidate.isEmailValid(userMail) && sqLfunction.addUserToDB(userName,userMail,userPassword)) {
             return "redirect:/index";
         } else{
             return "failedScenario";
         }
 
     }
+
+    @PostMapping("/createWishlist")
+    public String createWishlist(WebRequest dataFromForm, HttpSession session){
+        String wishlistName = dataFromForm.getParameter("wishlistName");
+        user user = (user) session.getAttribute("user");
+        int userID = user.getUserID();
+
+        sqLfunction.createWishList(userID,wishlistName);
+
+        return "createWish";
+    }
+
 
     @PostMapping("/Send-wish")
     public String sendingWish(WebRequest dataFromForm){
