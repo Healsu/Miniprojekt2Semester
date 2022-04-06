@@ -72,4 +72,15 @@ public class main {
         }
 
     }
+
+    @PostMapping("/Send-wish")
+    public String sendingWish(WebRequest dataFromForm){
+    String productName = (dataFromForm.getParameter("productName"));
+    String priceName = (dataFromForm.getParameter("priceName"));
+    String link = (dataFromForm.getParameter("link"));
+
+
+
+        return null;
+    }
 }

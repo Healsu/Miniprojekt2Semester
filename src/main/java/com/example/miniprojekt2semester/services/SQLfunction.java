@@ -93,4 +93,14 @@ public class SQLfunction {
         }
         return null;
     }
+    public String createWishList( ){
+
+        return null;
+    }
+    public String addWishToList(String productName, String priceName, String link){
+        String insertSQL = "INSERT INTO wish " +
+                "() " +
+                "VALUES('" + productName + "','" + priceName + "','" + link + "');";
+        return null;
+    }
 }
