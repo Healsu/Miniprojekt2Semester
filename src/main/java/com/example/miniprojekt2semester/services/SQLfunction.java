@@ -18,7 +18,7 @@ public class SQLfunction {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
             String user = "root";
-            String password = "";
+            String password = "Tim10ses";
 
             con = DriverManager.getConnection(url, user, password);
 
@@ -38,6 +38,7 @@ public class SQLfunction {
                 "VALUES('" + userName + "','" + userMail + "','" + userPassword + "');";
 
         try {
+            connectDB();
             stmt = con.createStatement();
             stmt.executeUpdate(insertSQL);
             closeConnection();
@@ -92,6 +93,7 @@ public class SQLfunction {
         }
         return null;
     }
+
     public void createWishList(int id, String wishlistName ){
         connectDB();
         sqlString = "INSERT INTO wishlist (`user_id`, `name`) VALUES ('" + id + "', '" + wishlistName + "');";
@@ -104,10 +106,41 @@ public class SQLfunction {
         }
         closeConnection();
     }
-    public String addWishToList(String productName, String priceName, String link){
+
+    public int returnWishlistID(int seassionID){
+
+        int wishlistID = 0;
+
+        String sqlString = "SELECT wishlist_id FROM gavelisten.wishlist "+
+        "INNER JOIN gavelisten.user "+
+        "ON user.user_id = "+seassionID+" and wishlist.user_id = "+seassionID+
+        "ORDER BY wishlist.wishlist_id DESC Limit 0,1;";
+
+        try {
+            stmt = con.createStatement();
+            wishlistID = stmt.executeUpdate(sqlString);
+        }
+        catch(Exception e){
+            System.out.println("ERROR CONNECTING TO WISHLIST");
+        }
+        return wishlistID;
+
+
+
+    }
+    public void addWishToList(String productName, String priceName, String link, int wishlistID){
+
         String insertSQL = "INSERT INTO wish " +
                 "() " +
-                "VALUES('" + productName + "','" + priceName + "','" + link + "');";
-        return null;
+                "VALUES('" + productName + "','" + priceName + "','" + link + "'"+wishlistID+"','"+
+                ");";
+
+        try{
+            stmt = con.createStatement();
+            stmt.executeUpdate(insertSQL);
+
+        } catch (Exception e){
+            System.out.println("ERROR DURING UPLOADING WISH");
+        }
     }
 }

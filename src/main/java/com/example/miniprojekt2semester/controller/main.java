@@ -36,6 +36,7 @@ public class main {
         return "redirect:/";
     }
 
+
     @GetMapping("/createWishList")
     public String createWishList(){
         return "createWishlist";
@@ -70,10 +71,12 @@ public class main {
 
     @PostMapping("/createWishlist")
     public String createWishlist(WebRequest dataFromForm, HttpSession session){
+
         String wishlistName = dataFromForm.getParameter("wishlistName");
         user user = (user) session.getAttribute("user");
         int userID = user.getUserID();
 
+        sqLfunction.connectDB();
         sqLfunction.createWishList(userID,wishlistName);
 
         return "createWish";
@@ -81,13 +84,18 @@ public class main {
 
 
     @PostMapping("/Send-wish")
-    public String sendingWish(WebRequest dataFromForm){
+    public String sendingWish(WebRequest dataFromForm, HttpSession session){
+
     String productName = (dataFromForm.getParameter("productName"));
     String priceName = (dataFromForm.getParameter("priceName"));
     String link = (dataFromForm.getParameter("link"));
+    user user = (user) session.getAttribute("user");
+
+    int userID = user.getUserID();
+    int wishlistID = sqLfunction.returnWishlistID(userID);
+    sqLfunction.addWishToList(productName,priceName,link,wishlistID);
 
 
-
-        return null;
+        return "createWish";
     }
 }
