@@ -2,15 +2,9 @@ package com.example.miniprojekt2semester.controller;
 
 import com.example.miniprojekt2semester.services.SQLfunction;
 import com.example.miniprojekt2semester.services.ValidateMail;
-import com.example.miniprojekt2semester.model.user;
-import com.mysql.cj.Session;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.thymeleaf.model.IAttribute;
 
 
 import javax.servlet.http.HttpSession;
@@ -40,7 +34,7 @@ public class main {
 
     @GetMapping("/createWishList")
     public String createWishList(){
-        return "createWishList";
+        return "createWishlist";
     }
 
     @GetMapping("/invalidate-session")
