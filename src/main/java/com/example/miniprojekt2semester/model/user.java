@@ -50,4 +50,14 @@ public class user {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
+
+    @Override
+    public String toString() {
+        return "user{" +
+                "userID=" + userID +
+                ", userName='" + userName + '\'' +
+                ", userMail='" + userMail + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                '}';
+    }
 }
