@@ -118,7 +118,9 @@ public class SQLfunction {
                     "ON user.user_id = "+seassionID+" and wishlist.user_id = "+seassionID+
                     " ORDER BY wishlist.wishlist_id DESC Limit 0,1;";
             stmt = con.createStatement();
-            wishlistID = stmt.executeUpdate(sqlString);
+            rs = stmt.executeQuery(sqlString);
+            rs.next();
+            wishlistID = rs.getInt(1);
         }
         catch(Exception e){
             System.out.println("ERROR CONNECTING TO WISHLIST");
