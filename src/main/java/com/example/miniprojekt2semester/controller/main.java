@@ -87,14 +87,14 @@ public class main {
     public String sendingWish(WebRequest dataFromForm, HttpSession session){
 
     String productName = (dataFromForm.getParameter("productName"));
-    String priceName = (dataFromForm.getParameter("priceName"));
+    String priceName = (dataFromForm.getParameter("pricePrice"));
     String link = (dataFromForm.getParameter("link"));
     user user = (user) session.getAttribute("user");
 
     int userID = user.getUserID();
     int wishlistID = sqLfunction.returnWishlistID(userID);
     sqLfunction.addWishToList(productName,priceName,link,wishlistID);
-
+    sqLfunction.closeConnection();
 
         return "createWish";
     }
