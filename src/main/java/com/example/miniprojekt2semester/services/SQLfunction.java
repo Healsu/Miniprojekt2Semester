@@ -18,7 +18,7 @@ public class SQLfunction {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
             String user = "root";
-            String password = "Tim10ses";
+            String password = "";
 
             con = DriverManager.getConnection(url, user, password);
 
@@ -87,6 +87,7 @@ public class SQLfunction {
             int id = rs.getInt(1);
             String username = rs.getString(2);
             String userEmail = rs.getString(3);
+            closeConnection();
             return new user(id,username, userEmail);
         } catch (SQLException e){
             e.printStackTrace();
@@ -100,7 +101,6 @@ public class SQLfunction {
         try {
             stmt = con.createStatement();
             stmt.executeUpdate(sqlString);
-            closeConnection();
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -108,28 +108,31 @@ public class SQLfunction {
     }
 
     public int returnWishlistID(int seassionID){
-
+        connectDB();
         int wishlistID = 0;
 
         String sqlString = "SELECT wishlist_id FROM gavelisten.wishlist "+
         "INNER JOIN gavelisten.user "+
         "ON user.user_id = "+seassionID+" and wishlist.user_id = "+seassionID+
-        "ORDER BY wishlist.wishlist_id DESC Limit 0,1;";
+        " ORDER BY wishlist.wishlist_id DESC Limit 0,1;";
 
         try {
             stmt = con.createStatement();
-            wishlistID = stmt.executeUpdate(sqlString);
+            rs = stmt.executeQuery(sqlString);
+            rs.next();
+            wishlistID = rs.getInt(1);
         }
-        catch(Exception e){
+        catch(SQLException e){
             System.out.println("ERROR CONNECTING TO WISHLIST");
         }
+        closeConnection();
         return wishlistID;
 
 
 
     }
     public void addWishToList(String productName, String priceName, String link, int wishlistID){
-
+        connectDB();
         String insertSQL = "INSERT INTO wish " +
                 "() " +
                 "VALUES('" + productName + "','" + priceName + "','" + link + "'"+wishlistID+"','"+
@@ -142,5 +145,7 @@ public class SQLfunction {
         } catch (Exception e){
             System.out.println("ERROR DURING UPLOADING WISH");
         }
+
+        closeConnection();
     }
 }
