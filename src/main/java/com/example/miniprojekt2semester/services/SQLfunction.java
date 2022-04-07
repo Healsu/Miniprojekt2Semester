@@ -18,7 +18,7 @@ public class SQLfunction {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
             String user = "root";
-            String password = "Tim10ses";
+            String password = "Hfg93rdqhfg";
 
             con = DriverManager.getConnection(url, user, password);
 
@@ -131,11 +131,10 @@ public class SQLfunction {
 
     }
     public void addWishToList(String productName, String priceName, String link, int wishlistID){
-
+        connectDB();
         String insertSQL = "INSERT INTO wish " +
                 "(`wish_name`,`wish_price`,`wish_link`,`wishlist_id`) " +
-                "VALUES('" + productName + "','" + priceName + "','" + link + "'"+wishlistID+"','"+
-                ");";
+                "VALUES('" + productName + "','" + priceName + "','" + link + "','" + wishlistID + "');";
 
         try{
             stmt = con.createStatement();
@@ -144,5 +143,6 @@ public class SQLfunction {
         } catch (Exception e){
             System.out.println("ERROR DURING UPLOADING WISH");
         }
+        closeConnection();
     }
 }
