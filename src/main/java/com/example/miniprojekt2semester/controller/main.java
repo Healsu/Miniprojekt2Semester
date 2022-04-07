@@ -1,14 +1,17 @@
 package com.example.miniprojekt2semester.controller;
 
 import com.example.miniprojekt2semester.model.user;
+import com.example.miniprojekt2semester.model.wishList;
 import com.example.miniprojekt2semester.services.SQLfunction;
 import com.example.miniprojekt2semester.services.ValidateMail;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 
 @Controller
@@ -22,15 +25,17 @@ public class main {
     }
 
     @PostMapping("login")
-    public String login(WebRequest dataFromForm, HttpSession session){
+    public String login(WebRequest dataFromForm, HttpSession session, Model model){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
         if(session.getAttribute("user") == null) {
             if (sqLfunction.checkIfUserExists(email, password)) {
                 session.setAttribute("user", sqLfunction.userForSession(email, password));
+                user user = (user) session.getAttribute("user");
+                int userID = user.getUserID();
+                ArrayList<wishList> userWishlist = sqLfunction.arrayOfWishlist(userID);
+                model.addAttribute("userWishlist", userWishlist);
                 return "userWebsite";
-            } else {
-                return "redirect:/";
             }
         }
         return "redirect:/";
@@ -76,7 +81,6 @@ public class main {
         user user = (user) session.getAttribute("user");
         int userID = user.getUserID();
 
-        sqLfunction.connectDB();
         sqLfunction.createWishList(userID,wishlistName);
 
         return "createWish";

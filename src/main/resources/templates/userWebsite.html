@@ -83,7 +83,11 @@
 
 <div class="makeWishList">
     <div class="UpperBox"> <h3>Tjek Ønskelister</h3></div>
-    <div class="LowerBox"></div>
+    <div class="LowerBox">
+        <div th:each="wishList : ${userWishlist}">
+            <p th:text="${wishList.getWishListName()}"></p>
+        </div>
+    </div>
 </div>
 
 </div>
