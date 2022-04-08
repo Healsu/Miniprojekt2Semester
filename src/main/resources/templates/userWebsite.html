@@ -17,6 +17,7 @@
     <!--Creates profile banner in corner-->
     <i onclick="document.getElementById('id01').style.display='block'" class="fa-solid fa-circle-thin fa-user fa-2x profil"></i>
 
+
     <div id="id01" class="modal">
 
         <form class="modal-content animate" action="login" method="POST">
@@ -24,6 +25,7 @@
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
 
+            <!--Timmie's Kode-->
             <div class="container">
 
                 <h3>Bruger Indstillinger</h3>
@@ -39,7 +41,7 @@
                         <a href="invalidate-session"><input type="submit" value="Log ud" /></a>
                     </form>
                 </div>
-
+                <!--/Timmie's Kode-->
             </div>
         </form>
     </div>
@@ -51,6 +53,7 @@
 </header>
 
 <body>
+<!--Timmie's Kode-->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="userWebsite">Homepage</a>
@@ -59,28 +62,29 @@
     <a href="#">Andres Ønskelister</a>
 </div>
 
-
 <span class="menu" onclick="openNav()">Menu</span>
 
 <div id="main">
     <h3 th:text="${session.user.getUserName()}"> </h3>
 </div>
-
 <div class="optionBoxes">
+    <!--/Timmie's Kode-->
 
+    <!--Timmie's Kode-->
 <div class="makeWishList">
 
 
     <div class="UpperBox"> <h3>Opret Ønskeliste</h3></div>
 
-    <!--Creates the link to the createWishList-->
+
     <div class="LowerBox">
         <a href="createWishList" class="makeWishListPicture" >
             <img id="addImg" alt="Test Index" src="https://cdn.pixabay.com/photo/2017/03/19/03/51/material-icon-2155448_1280.png">
         </a>
     </div>
 </div>
-
+    <!--/Timmie's Kode-->
+    <!--Jimmy's Kode-->
 <div class="makeWishList">
     <div class="UpperBox"> <h3>Tjek Ønskelister</h3></div>
     <div id="scroll" class="LowerBox">
@@ -89,15 +93,20 @@
         </div>
     </div>
 </div>
+<!--/Jimmy's Kode-->
 
 </div>
+
+<!--Jimmy's Kode-->
 <footer>
     <p>Gavelisen</p>
     <p>Tlf: 33445566</p>
     <p>Email: gavelisten@gmail.com</p>
     <p>Private politik</p>
 </footer>
+<!--/Jimmy's Kode-->
 </body>
+<!--Timmie's Kode-->
 <script>
 
     function openNav() {
@@ -111,4 +120,5 @@
         document.getElementById("main").style.marginLeft = "0";
     }
 </script>
+<!--/Timmie's Kode-->
 </html>

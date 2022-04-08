@@ -21,10 +21,9 @@
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
 
+            <!--Timmie's Kode-->
             <div class="container">
-
                 <h3>Bruger Indstillinger</h3>
-
                 <div class="input-container2">
                     <form action="idk">
                         <input type="submit" value="Ændre Bruger" />
@@ -38,10 +37,12 @@
                 </div>
 
             </div>
+            <!--/Timmie's Kode-->
         </form>
     </div>
 </header>
 
+<!--Timmie's Kode-->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="userWebsite">Homepage</a>
@@ -49,7 +50,7 @@
     <a href="viewWishlist">Mine Ønskelister</a>
     <a href="#">Andres Ønskelister</a>
 </div>
-
+<!--/Timmie's Kode-->
 <span class="menu" onclick="openNav()">Menu</span>
 <div id="main">
     <h3 th:text="${session.user.getUserName()}"> </h3>
@@ -93,6 +94,8 @@
 </footer>
 
 </body>
+
+<!--Timmie's Kode-->
 <script>
 
     function openNav() {
@@ -106,4 +109,5 @@
         document.getElementById("main").style.marginLeft = "0";
     }
 </script>
+<!--/Timmie's Kode-->
 </html>

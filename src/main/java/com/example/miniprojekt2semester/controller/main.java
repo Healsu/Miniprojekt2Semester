@@ -42,6 +42,7 @@ public class main {
         return "redirect:/";
     }
 
+    //Timmie's Kode
     @GetMapping("/userWebsite")
     public String userWebsite(HttpSession session, Model model){
         user user = (user) session.getAttribute("user");
@@ -71,11 +72,13 @@ public class main {
         return "redirect:index";
     }
 
+    //Timmie's Kode
     @GetMapping("/userCreation")
     public String createUser(){
         return "userCreation";
     }
 
+    //Timmie's Kode
     @PostMapping("/Get-Info")
     public String creatingUser(WebRequest dataFromForm){
         ValidateMail mailValidate = new ValidateMail();
@@ -104,7 +107,7 @@ public class main {
         return "createWish";
     }
 
-
+    //Timmie's Kode
     @PostMapping("/Send-wish")
     public String sendingWish(WebRequest dataFromForm, HttpSession session){
 

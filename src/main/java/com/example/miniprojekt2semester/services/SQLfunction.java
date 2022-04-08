@@ -13,7 +13,7 @@ public class SQLfunction {
     static ResultSet rs;
 
 
-
+    //Timmie's Kode
     public Connection connectDB() {
         System.out.println("Connecting to the database");
         try {
@@ -34,6 +34,8 @@ public class SQLfunction {
 
         return con;
     }
+
+
     public void closeConnection(){
         try{
             con.close();
@@ -43,6 +45,7 @@ public class SQLfunction {
         }
     }
 
+    //Timmie's Kode
     public boolean addUserToDB(String userName, String userMail, String userPassword) {
         String insertSQL = "INSERT INTO user " +
                 "(`user_name`,`user_mail`,`user_password`) " +
@@ -108,6 +111,8 @@ public class SQLfunction {
         }
         closeConnection();
     }
+
+    //Timmie's Kode
     public int returnWishlistID(int sessionID){
         int wishlistID = 0;
         connectDB();
@@ -186,6 +191,8 @@ public class SQLfunction {
         closeConnection();
         return listToReturn;
     }
+
+    //Timmie's Kode
     public void addWishToList(String productName, String priceName, String link, int wishlistID){
         connectDB();
         String insertSQL = "INSERT INTO wish " +
