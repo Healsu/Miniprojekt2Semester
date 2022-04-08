@@ -42,6 +42,15 @@ public class main {
         return "redirect:/";
     }
 
+    @GetMapping("/userWebsite")
+    public String userWebsite(HttpSession session, Model model){
+        user user = (user) session.getAttribute("user");
+        int userID = user.getUserID();
+        ArrayList<wishList> userWishlist = sqLfunction.arrayOfWishlist(userID);
+        model.addAttribute("userWishlist", userWishlist);
+        return "userWebsite";
+    }
+
     @GetMapping("/viewWishlist")
     public String viewWishlist(Model model, @RequestParam("wishlistID") int id, HttpSession session){
         user user = (user) session.getAttribute("user");
