@@ -29,7 +29,7 @@ public class main {
     public String login(WebRequest dataFromForm, HttpSession session, Model model){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
-        if(session.getAttribute("user") == null) {
+
             if (sqLfunction.checkIfUserExists(email, password)) {
                 session.setAttribute("user", sqLfunction.userForSession(email, password));
                 user user = (user) session.getAttribute("user");
@@ -38,7 +38,7 @@ public class main {
                 model.addAttribute("userWishlist", userWishlist);
                 return "userWebsite";
             }
-        }
+
         return "redirect:/";
     }
 
