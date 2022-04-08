@@ -1,3 +1,4 @@
+// Samuel's kode
 package com.example.miniprojekt2semester.model;
 
 public class wish {

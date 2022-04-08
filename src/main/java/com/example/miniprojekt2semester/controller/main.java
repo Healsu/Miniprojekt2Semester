@@ -25,6 +25,7 @@ public class main {
         return "index";
     }
 
+    //Jimmy's kode
     @PostMapping("login")
     public String login(WebRequest dataFromForm, HttpSession session, Model model){
         String email = dataFromForm.getParameter("email");
@@ -52,6 +53,7 @@ public class main {
         return "userWebsite";
     }
 
+    //Jimmy's kode
     @GetMapping("/viewWishlist")
     public String viewWishlist(Model model, @RequestParam("wishlistID") int id, HttpSession session){
         user user = (user) session.getAttribute("user");
@@ -60,12 +62,12 @@ public class main {
         model.addAttribute("ListOfWish",ListOfWish);
         return "viewWishlist";
     }
-
+    //Jimmy's kode
     @GetMapping("/createWishList")
     public String createWishList(){
         return "createWishlist";
     }
-
+    //Jimmy's kode
     @GetMapping("/invalidate-session")
     public String invalidate(HttpSession session){
         session.invalidate();
@@ -94,7 +96,7 @@ public class main {
         }
 
     }
-
+    //Jimmy's kode
     @PostMapping("/createWishlist")
     public String createWishlist(WebRequest dataFromForm, HttpSession session){
 

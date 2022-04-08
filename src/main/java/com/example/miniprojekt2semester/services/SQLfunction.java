@@ -20,7 +20,7 @@ public class SQLfunction {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
             String user = "root";
-            String password = "Tim10ses";
+            String password = "";
 
             con = DriverManager.getConnection(url, user, password);
 
@@ -35,7 +35,7 @@ public class SQLfunction {
         return con;
     }
 
-
+    //Jimmy's kode
     public void closeConnection(){
         try{
             con.close();
@@ -63,6 +63,7 @@ public class SQLfunction {
             return false;
         }
     }
+    //Jimmy's kode
     public boolean checkIfUserExists(String email, String password){
         connectDB();
         try {
@@ -82,6 +83,7 @@ public class SQLfunction {
         closeConnection();
         return false;
     }
+    //Jimmy's kode
     public user userForSession(String email, String password){
         connectDB();
         try {
@@ -98,7 +100,7 @@ public class SQLfunction {
         }
         return null;
     }
-
+    //Jimmy's kode
     public void createWishList(int id, String wishlistName ){
         connectDB();
         sqlString = "INSERT INTO wishlist (`user_id`, `name`) VALUES ('" + id + "', '" + wishlistName + "');";
@@ -136,6 +138,8 @@ public class SQLfunction {
 
 
     }
+
+    //Jimmy's kode
     public ArrayList<wishList> arrayOfWishlist(int sessionID){
         connectDB();
         ArrayList<wishList> listToReturn = new ArrayList<wishList>();
@@ -161,7 +165,7 @@ public class SQLfunction {
         closeConnection();
         return listToReturn;
     }
-
+    //Jimmy's kode
     public ArrayList<wish> wishFromWishlistAndUserID(int wishlistID, int userID){
         connectDB();
         ArrayList<wish> listToReturn = new ArrayList<wish>();
