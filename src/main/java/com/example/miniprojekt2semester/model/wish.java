@@ -15,6 +15,12 @@ public class wish {
         this.isWishTaken = isWishTaken;
     }
 
+    public wish(String wishName, String wishLink, int wishPrice){
+        this.wishLink = wishLink;
+        this.wishName = wishName;
+        this.wishPrice = wishPrice;
+    }
+
     public String getWishLink() {
         return wishLink;
     }

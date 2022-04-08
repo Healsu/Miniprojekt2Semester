@@ -85,12 +85,18 @@
     <div class="UpperBox"> <h3>Tjek Ønskelister</h3></div>
     <div class="LowerBox">
         <div th:each="wishList : ${userWishlist}">
-            <p th:text="${wishList.getWishListName()}"></p>
+          <a th:href="@{viewWishlist(wishlistID=${wishList.getWishListID()})}" ><p th:text="${wishList.getWishListName()}"></p></a>
         </div>
     </div>
 </div>
 
 </div>
+<footer>
+    <p>Gavelisen</p>
+    <p>Tlf: 33445566</p>
+    <p>Email: gavelisten@gmail.com</p>
+    <p>Private politik</p>
+</footer>
 </body>
 <script>
 

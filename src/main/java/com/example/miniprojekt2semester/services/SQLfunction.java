@@ -2,6 +2,7 @@ package com.example.miniprojekt2semester.services;
 
 import java.sql.*;
 import com.example.miniprojekt2semester.model.user;
+import com.example.miniprojekt2semester.model.wish;
 import com.example.miniprojekt2semester.model.wishList;
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class SQLfunction {
 
             String url = "jdbc:mysql://localhost:3306/gavelisten";
             String user = "root";
-            String password = "";
+            String password = "Hfg93rdqhfg";
 
             con = DriverManager.getConnection(url, user, password);
 
@@ -156,7 +157,35 @@ public class SQLfunction {
         return listToReturn;
     }
 
+    public ArrayList<wish> wishFromWishlistAndUserID(int wishlistID, int userID){
+        connectDB();
+        ArrayList<wish> listToReturn = new ArrayList<wish>();
+        String wishName;
+        int wishprice;
+        String wishLink;
 
+        sqlString = "SELECT wish_name, wish_price, wish_link FROM gavelisten.wishlist " +
+                "INNER JOIN gavelisten.user " +
+                "ON user.user_id = " + userID + " AND wishlist.user_id = " + userID + " " +
+                "INNER JOIN gavelisten.wish " +
+                "ON wish.wishlist_id = " + wishlistID + " and wishlist.wishlist_id = " + wishlistID;
+
+        try{
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(sqlString);
+            while (rs.next()){
+             wishName = rs.getString(1);
+             wishprice = rs.getInt(2);
+             wishLink = rs.getString(3);
+             listToReturn.add(new wish(wishName, wishLink, wishprice));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        closeConnection();
+        return listToReturn;
+    }
     public void addWishToList(String productName, String priceName, String link, int wishlistID){
         connectDB();
         String insertSQL = "INSERT INTO wish " +

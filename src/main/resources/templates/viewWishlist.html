@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gavelisten</title>
+    <script src="https://kit.fontawesome.com/4ef292df47.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"  href="/style.css">
+</head>
+<body>
+<header>
+    <a id="logo_and_title" href="index">
+        <img id="logo" src="https://cdn-icons-png.flaticon.com/512/172/172155.png">
+        <h1>Gavelisten</h1>
+    </a>
+</header>
+<main>
+    <div id="createWishContainer">
+        <section id="wishList">
+            <div class="container">
+                <div id="wishArray">
+                    <div>
+                        <p>Produckt navn:</p>
+                        <div th:each="wish : ${ListOfWish}">
+                            <p th:text="${wish.getWishName()}"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Pris:</p>
+                        <div th:each="wish : ${ListOfWish}">
+                            <p th:text="${wish.getWishPrice()}"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Link:</p>
+                        <div th:each="wish : ${ListOfWish}">
+                            <p th:text="${wish.getWishLink()}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<footer>
+    <p>Gavelisen</p>
+    <p>Tlf: 33445566</p>
+    <p>Email: gavelisten@gmail.com</p>
+    <p>Private politik</p>
+</footer>
+
+</body>
+</html>

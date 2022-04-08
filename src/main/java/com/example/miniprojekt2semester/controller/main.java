@@ -1,6 +1,7 @@
 package com.example.miniprojekt2semester.controller;
 
 import com.example.miniprojekt2semester.model.user;
+import com.example.miniprojekt2semester.model.wish;
 import com.example.miniprojekt2semester.model.wishList;
 import com.example.miniprojekt2semester.services.SQLfunction;
 import com.example.miniprojekt2semester.services.ValidateMail;
@@ -41,6 +42,14 @@ public class main {
         return "redirect:/";
     }
 
+    @GetMapping("/viewWishlist")
+    public String viewWishlist(Model model, @RequestParam("wishlistID") int id, HttpSession session){
+        user user = (user) session.getAttribute("user");
+        int userID = user.getUserID();
+        ArrayList<wish> ListOfWish = sqLfunction.wishFromWishlistAndUserID(id, userID);
+        model.addAttribute("ListOfWish",ListOfWish);
+        return "viewWishlist";
+    }
 
     @GetMapping("/createWishList")
     public String createWishList(){
@@ -91,7 +100,7 @@ public class main {
     public String sendingWish(WebRequest dataFromForm, HttpSession session){
 
     String productName = (dataFromForm.getParameter("productName"));
-    String priceName = (dataFromForm.getParameter("pricePrice"));
+    String priceName = (dataFromForm.getParameter("productPrice"));
     String link = (dataFromForm.getParameter("link"));
     user user = (user) session.getAttribute("user");
 
