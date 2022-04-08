@@ -13,6 +13,22 @@
         <h1>Gavelisten</h1>
     </a>
 </header>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="userWebsite">Homepage</a>
+    <a href="createWishlist">Tilføj Ønskeliste</a>
+    <a href="viewWishlist">Mine Ønskelister</a>
+    <a href="#">Andres Ønskelister</a>
+</div>
+
+<span class="menu" onclick="openNav()">Menu</span>
+<div id="main">
+    <h3 th:text="${session.user.getUserName()}"> </h3>
+</div>
+
+<div class="optionBoxes">
+
 <main>
     <div id="createWishContainer">
         <section id="wishList">
@@ -49,4 +65,17 @@
 </footer>
 
 </body>
+<script>
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
 </html>
