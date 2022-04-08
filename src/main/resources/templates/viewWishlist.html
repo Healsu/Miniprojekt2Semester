@@ -12,6 +12,34 @@
         <img id="logo" src="https://cdn-icons-png.flaticon.com/512/172/172155.png">
         <h1>Gavelisten</h1>
     </a>
+    <i onclick="document.getElementById('id01').style.display='block'" class="fa-solid fa-circle-thin fa-user fa-2x profil"></i>
+
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="login" method="POST">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+
+            <div class="container">
+
+                <h3>Bruger Indstillinger</h3>
+
+                <div class="input-container2">
+                    <form action="idk">
+                        <input type="submit" value="Ændre Bruger" />
+                    </form>
+                </div>
+
+                <div class="input-container2">
+                    <form action="invalidate-session">
+                        <a href="invalidate-session"><input type="submit" value="Log ud" /></a>
+                    </form>
+                </div>
+
+            </div>
+        </form>
+    </div>
 </header>
 
 <div id="mySidenav" class="sidenav">
